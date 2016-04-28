@@ -1,0 +1,4 @@
+---
+- name: Fail if facter_operatingsystem is not defined
+  fail: msg="Facter Not Working"
+  when: facter_operatingsystem == "VARIABLE IS NOT DEFINED!"

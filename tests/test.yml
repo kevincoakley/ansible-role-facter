@@ -1,5 +1,40 @@
 ---
-- hosts: localhost
-  remote_user: root
+- name: Start the Docker containers
+  hosts: localhost
+  gather_facts: false
+
+  vars_files:
+    - docker_containers.yml
+
+  roles:
+    - docker-start
+
+  tags:
+    - docker-start
+
+
+- name: Test the facter role for Centos and Ubuntu
+  hosts: all
+  become: yes
+  become_method: sudo
+
   roles:
     - ansible-role-facter
+    - facter-test
+
+  tags:
+    - facter
+
+
+- name: Stop the Docker containers
+  hosts: localhost
+  gather_facts: false
+
+  vars_files:
+    - docker_containers.yml
+
+  roles:
+    - docker-stop
+
+  tags:
+    - docker-stop
