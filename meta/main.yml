@@ -2,7 +2,7 @@ galaxy_info:
   author: Kevin Coakley
   description: Install Facter on a host then regather the host facts
   license: BSD
-  min_ansible_version: 1.4
+  min_ansible_version: 2.5
   platforms:
   - name: EL
     versions:
@@ -10,6 +10,7 @@ galaxy_info:
   - name: Ubuntu
     versions:
     - xenial
+    - bionic
   galaxy_tags:
     - system
     - deployment
