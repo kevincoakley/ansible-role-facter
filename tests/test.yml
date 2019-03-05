@@ -6,15 +6,19 @@
   vars_files:
     - docker_containers.yml
 
+  vars:
+    - container_state: started
+    - container_privileged: true
+
   roles:
-    - docker-start
+    - docker
 
   tags:
     - docker-start
 
 
 - name: Test the facter role for Centos and Ubuntu
-  hosts: all
+  hosts: facter
   become: yes
   become_method: sudo
 
@@ -33,8 +37,11 @@
   vars_files:
     - docker_containers.yml
 
+  vars:
+    - container_state: absent
+
   roles:
-    - docker-stop
+    - docker
 
   tags:
     - docker-stop
