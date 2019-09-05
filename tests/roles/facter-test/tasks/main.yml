@@ -1,5 +1,0 @@
----
-- name: Fail if facter_facterversion is not defined
-  fail:
-    msg: Facter Not Working
-  when: facter_facterversion is not defined
