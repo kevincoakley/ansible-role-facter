@@ -1,14 +1,28 @@
 ---
-- name: Download and install epel (yum)
+- name: Download and install epel (RedHat)
   package:
     name: epel-release
     state: present
   when: ansible_os_family == "RedHat"
 
-- name: Download and install factor
+- name: Download and install factor (RedHat)
   package:
     name: facter
     state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Download and install Ruby (Debian)
+  package:
+    name: ruby
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Download and install the facter Gem (Debian)
+  gem:
+    name: facter
+    state: present
+    user_install: false
+  when: ansible_os_family == 'Debian'
 
 - name: Rerun setup to gather the new facter facts
   action: setup
