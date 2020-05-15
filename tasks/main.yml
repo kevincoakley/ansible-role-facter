@@ -11,6 +11,11 @@
     state: present
   when: ansible_os_family == "RedHat"
 
+- name: Run "apt-get update" (Debian)
+  apt:
+    update_cache: true
+  when: ansible_os_family == "Debian"
+
 - name: Download and install Ruby (Debian)
   package:
     name: ruby
