@@ -26,6 +26,7 @@
   gem:
     name: facter
     state: present
+    version: 2.4.1
     user_install: false
   when: ansible_os_family == 'Debian'
 
