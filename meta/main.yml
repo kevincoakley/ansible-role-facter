@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: facter
   author: Kevin Coakley
   description: Install Facter on a host then regather the host facts
 
@@ -25,9 +26,11 @@ galaxy_info:
     - name: EL
       versions:
         - 7
+        - 8
     - name: Ubuntu
       versions:
         - bionic
+        - focal
 
   galaxy_tags:
     - system
