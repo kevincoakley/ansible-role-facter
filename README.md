@@ -1,7 +1,7 @@
 ansible-role-facter
 ===================
 
-[![Build Status](https://travis-ci.org/kevincoakley/ansible-role-facter.svg?branch=master)](https://travis-ci.org/kevincoakley/ansible-role-facter)
+![](https://github.com/kevincoakley/ansible-role-facter/workflows/Molecule%20Test/badge.svg)
 
 Installs facter on host then regathers facts. Useful for getting facts from Docker containers that 
 are not present in the list of Ansible facts, like the container's private ip address.
