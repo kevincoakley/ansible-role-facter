@@ -4,17 +4,23 @@
     name: rubygems
     state: present
   when: ansible_os_family == "RedHat"
+  retries: 5
+  delay: 5
 
 - name: Run "apt-get update" (Debian)
   apt:
     update_cache: true
   when: ansible_os_family == "Debian"
+  retries: 5
+  delay: 5
 
 - name: Download and install Ruby (Debian)
   package:
     name: ruby
     state: present
   when: ansible_os_family == "Debian"
+  retries: 5
+  delay: 5
 
 - name: Download and install the facter Gem
   gem:
@@ -22,6 +28,8 @@
     state: present
     version: "{{ facter_version }}"
     user_install: false
+  retries: 5
+  delay: 5
 
 - name: Create a symbolic link for /usr/bin/facter (RedHat)
   file:
