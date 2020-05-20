@@ -1,0 +1,10 @@
+---
+- name: Verify
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Fail if facter_facterversion is not defined
+    fail:
+      msg: Facter is Not Working
+    when: facter_facterversion is not defined
