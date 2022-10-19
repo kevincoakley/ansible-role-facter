@@ -9,7 +9,7 @@ are not present in the list of Ansible facts, like the container's private ip ad
 Requirements
 ------------
 
-None. Tested on CentOS 7 & 8 and Ubuntu 18.04 & 20.04. 
+None. Tested on CentOS 8 & 9 and Ubuntu 20.04 & 22.04. 
 
 Role Variables
 --------------
