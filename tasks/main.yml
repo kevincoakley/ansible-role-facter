@@ -1,6 +1,6 @@
 ---
 - name: Download and install rubygems (RedHat)
-  package:
+  ansible.builtin.package:
     name: rubygems
     state: present
   when: ansible_os_family == "RedHat"
@@ -8,14 +8,14 @@
   delay: 5
 
 - name: Run "apt-get update" (Debian)
-  apt:
+  ansible.builtin.apt:
     update_cache: true
   when: ansible_os_family == "Debian"
   retries: 5
   delay: 5
 
 - name: Download and install Ruby (Debian)
-  package:
+  ansible.builtin.package:
     name: ruby
     state: present
   when: ansible_os_family == "Debian"
@@ -23,7 +23,7 @@
   delay: 5
 
 - name: Download and install the facter Gem
-  gem:
+  community.general.gem:
     name: facter
     state: present
     version: "{{ facter_version }}"
@@ -33,7 +33,7 @@
   delay: 5
 
 - name: Create a symbolic link for /usr/bin/facter (RedHat)
-  file:
+  ansible.builtin.file:
     src: /usr/local/bin/facter
     dest: /usr/bin/facter
     owner: root
@@ -41,5 +41,7 @@
     state: link
   when: ansible_os_family == "RedHat"
 
-- name: Rerun setup to gather the new facter facts
-  action: setup
+- name: Rerun setup module to gather facts
+  ansible.builtin.setup:
+    gather_subset:
+      - facter
