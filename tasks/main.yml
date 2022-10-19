@@ -28,6 +28,7 @@
     state: present
     version: "{{ facter_version }}"
     user_install: false
+    norc: true
   retries: 5
   delay: 5
 
